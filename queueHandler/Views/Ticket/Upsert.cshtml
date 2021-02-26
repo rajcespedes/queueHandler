@@ -1,0 +1,78 @@
+﻿@model queuehandler.Models.Ticket
+
+    <br />
+    <h3> @(Model.Id != 0 ? "Crear" : "Modificar" ) Ticket </h3>
+    <br />
+
+
+    <div class="container border">
+        <form method="post">
+            @if (Model.Id != 0)
+            {
+                <input type="hidden" asp-for="Id" />
+            }
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            @*<div class="row form-group">
+                <div class="col-3">
+                    <label asp-for="Numero"></label>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" disabled asp-for="Numero" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+            </div>*@
+            <div class="row form-group">
+                <div class="col-3">
+                    <label asp-for="TipoServicio"></label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" name="tipoServicio" value="Caja"/> Caja<br />
+                    <input type="radio" name="tipoServicio" value="Servicio al cliente" /> Servicio al cliente <br />
+                    @*<span asp-validation-for="Numero" class="text-danger"></span>*@
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label asp-for="Prioridad"></label>
+                </div>
+                <div class="col-6">
+                    @*@foreach (var tipo in Model.TipoServicios)
+            {
+                <input asp-for="TipoServicio" type="radio" class="form-control" />
+            }*@
+
+                    <input type="radio" name="prioridad" value="Embarazada" /> Embarazada <br />
+                    <input type="radio" name="prioridad" value="Tercera Edad" /> Tercera Edad <br />
+                    <input type="radio" name="prioridad" value="Priorizado" /> Priorizado <br />
+
+
+                </div>
+                
+                    
+                </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label asp-for="Estado"></label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" name="Estado" value="Pendiente" /> Pendiente<br />
+                    <input type="radio" name="Estado" value="Trabajado" /> Trabajado<br />
+                    <input type="radio" name="Estado" value="Cancelado" /> Cancelado<br />
+                    @*<span asp-validation-for="Numero" class="text-danger"></span>*@
+                </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3 offset-3">
+                        <button type="submit" class="btn btn-info text-white">
+                            @(Model.Id != 0 ? "Actualizar" : "Crear" )
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <a asp-action="Index" class="btn btn-success text-white">Volver a la lista</a>
+                    </div>
+                </div>
+</form>
+        
+        
+
+    </div>

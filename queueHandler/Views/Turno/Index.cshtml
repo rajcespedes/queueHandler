@@ -1,0 +1,23 @@
+﻿@model queuehandler.Models.Ticket
+
+    <div class="row container d-flex justify-content-center">
+        <form action="/turno/onpost" method="post">
+            <div class="row">
+                <div class="col">
+                    <h3>Tipo servicio</h3>
+                    <input type="radio" name="tipoServicio" value="Caja" /> Caja <br />
+                    <input type="radio" name="tipoServicio" value="Servicio al cliente" /> Servicio al cliente <br />
+                    <h3>Priorizado</h3>
+                    <input type="radio" name="prioridad" value="Tercera Edad" /> Tercera Edad <br />
+                    <input type="radio" name="prioridad" value="Embarazada" /> Embarazada <br />
+                </div>
+               
+                <input id="submitBtn" class="btn btn-info" type="submit" name="name" value="Crear turno" />
+            </div>
+        </form>        
+    </div>
+
+
+@section Scripts {
+    <script src="~/js/swal.js"></script>
+} 
