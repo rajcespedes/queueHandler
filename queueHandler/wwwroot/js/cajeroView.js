@@ -21,7 +21,7 @@ function loadDataTable() {
                     "data": "id",
                     "render": function (data) {
                         return `<div clas="text-center">
-                                    <form action="/servicio/estado" method="post">
+                                    <form action="/cajero/estado" method="post">
                                         <input hidden name="id" value="${data}" />
                                         <input hidden name="estado" value="Trabajado" />
                                         <button class="btn btn-success" type="submit">

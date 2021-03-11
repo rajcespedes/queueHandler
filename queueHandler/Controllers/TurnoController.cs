@@ -21,7 +21,7 @@ namespace queuehandler.Controllers
         public Ticket Ticket { get; set; }
         public IActionResult Index()
         {
-            var tempNum = _db.Ticket.Max(u => u.Numero) + 1;
+            //var tempNum = _db.Ticket.Max(u => u.Numero) + 1;
 
             return View();
         }
@@ -32,7 +32,16 @@ namespace queuehandler.Controllers
 
             if(ModelState.IsValid)
             {
-                Ticket.Numero = _db.Ticket.Max(u => u.Numero) + 1;
+
+                if(_db.Ticket.FirstOrDefault() == null)
+                {
+                    Ticket.Numero = 1;
+                } else
+                {
+                    Ticket.Numero = _db.Ticket.Max(u => u.Numero) + 1;
+                }
+
+                    
 
                 Ticket.Fecha = DateTime.Today;
 

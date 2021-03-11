@@ -64,7 +64,15 @@ namespace queuehandler.Controllers
 
                 if (Ticket.Id == 0)
                 {
-                    Ticket.Numero = _db.Ticket.Max(u => u.Numero) + 1;
+
+                    if (_db.Ticket.FirstOrDefault() == null)
+                    {
+                        Ticket.Numero = 1;
+                    } else
+                    {
+                        Ticket.Numero = _db.Ticket.Max(u => u.Numero) + 1;
+                    }
+                    
 
                     Ticket.Fecha = DateTime.Today;
 
